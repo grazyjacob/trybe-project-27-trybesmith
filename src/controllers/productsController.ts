@@ -8,6 +8,7 @@ export async function create(req: Request, res: Response) {
   return res.status(status).json(result);
 }
 
-export async function getAllProducts() {
-  return 'ainda n funciona';
+export async function getAllProducts(req: Request, res: Response) {
+  const { status, result } = await productsService.getAllProducts();
+  return res.status(status).json(result);
 }

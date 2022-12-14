@@ -14,10 +14,16 @@ Promise<TProducts> {
 }
 
 export async function getByName(name: string) {
-  const query = 'SELECT * FROM Products WHERE name = ?';
+  const query = 'SELECT * FROM Trybesmith.products WHERE name = ?';
   const value = name;
   const [data] = await connection.execute(query, value);
   const [user] = data as TProducts[];
 
   return user || null;
+}
+
+export async function getAll() {
+  const query = 'SELECT * FROM Trybesmith.products';
+  const [result] = await connection.execute(query);
+  return result;
 }

@@ -7,5 +7,6 @@ export async function create(product: TProducts) {
 } 
 
 export async function getAllProducts() {
-  return 'ainda n funciona';
+  const result = await productsModel.getAll();
+  return { status: 200, result };
 }

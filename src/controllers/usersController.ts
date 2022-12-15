@@ -1,14 +1,9 @@
 import { Request, Response } from 'express';
 import { TUser } from '../types';
-import * as usersService from '../services/usersService';
+import usersService from '../services/usersService';
 
-export async function create(req: Request, res: Response) {
-  console.log('CONTROLLER');
+export default async function create(req: Request, res: Response) {
   const user = req.body as TUser;
-  const { status, token } = await usersService.createUser(user);
+  const { status, token } = await usersService(user);
   return res.status(status).json({ token });
-}
-
-export async function defina() {
-  return 'aind n uso';
 }

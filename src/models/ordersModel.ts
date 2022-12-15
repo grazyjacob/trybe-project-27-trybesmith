@@ -1,6 +1,6 @@
 import connection from './connection';
 
-export async function getAll() {
+export default async function getAll() {
   const query = `
   SELECT O.id, O.user_id AS userId, JSON_ARRAYAGG(P.id) AS productsIds 
   FROM Trybesmith.orders AS O
@@ -10,8 +10,4 @@ export async function getAll() {
   ORDER BY O.id;`;
   const [result] = await connection.execute(query);
   return result;
-}
-  
-export async function nuso() {
-  return 'asdonfasnaj';
 }

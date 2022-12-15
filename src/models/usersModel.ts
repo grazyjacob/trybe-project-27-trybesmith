@@ -5,7 +5,6 @@ import { TUser } from '../types';
 export async function createUser(user: TUser):
 Promise<TUser> {
   const { username, vocation, level, password } = user;
-  console.log('PARAMETROS', username, vocation, level, password);
   const query = `INSERT INTO Trybesmith.users
   (username, vocation, level, password) VALUES (?, ?, ?, ?)`;
   const values = [username, vocation, level, password];

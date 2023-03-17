@@ -11,6 +11,6 @@ export default async function login(user: TLogin) {
   }
   const payload = await loginModel(user);
   if (payload === null) return { status: 401, message: 'Username or password invalid' };
-  const token = await jwt.sign({ payload }, secret, config);
+  const token = jwt.sign({ payload }, secret, config);
   return { status: 200, token };
 }
